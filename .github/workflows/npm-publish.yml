@@ -16,9 +16,9 @@ jobs:
       - name: Installing PNPM
         run: npm i -g pnpm
       - name: Installing dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
       - name: Testing
-        run: pnpm ci && pnpm test
+        run: pnpm test
 
   build:
     needs: prepare
