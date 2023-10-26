@@ -44,7 +44,7 @@ jobs:
           commit_message: 🚀 New build compiled
           commit_options: '--no-verify'
       - name: Automate Bump Version
-        uses: phips28/automate-bump-version@master
+        uses: phips28/gh-action-bump-version@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
