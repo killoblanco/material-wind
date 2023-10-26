@@ -21,6 +21,7 @@ jobs:
         run: pnpm ci && pnpm test
 
   build:
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
