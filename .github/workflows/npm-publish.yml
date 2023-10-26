@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  prepare:
+  preflight:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,11 +17,11 @@ jobs:
         run: npm i -g pnpm
       - name: Installing dependencies
         run: pnpm install --frozen-lockfile
-      - name: Testing
+      - name: Run Tests
         run: pnpm test
 
   build:
-    needs: prepare
+    needs: preflight
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,8 +32,16 @@ jobs:
         run: npm i -g pnpm
       - name: Installing dependencies
         run: pnpm i
+      - name: Deleting dist folder
+        run: rm -rf dist
       - name: Building Code
         run: pnpm build
+      - name: Committing dist folder
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dist/*
+          git commit -m "🚀 New build compiled"
 
   publish-npm:
     needs: build
