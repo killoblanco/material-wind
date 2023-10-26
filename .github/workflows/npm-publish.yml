@@ -1,0 +1,51 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Installing PNPM
+        run: npm i -g pnpm
+      - name: Installing dependencies
+        run: pnpm i
+      - name: Testing
+        run: pnpm ci && pnpm test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Installing PNPM
+        run: npm i -g pnpm
+      - name: Installing dependencies
+        run: pnpm i
+      - name: Building Code
+        run: pnpm build
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Installing PNPM
+        run: npm i -g pnpm
+      - name: Publishing Package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: pnpm publish --access public

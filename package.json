@@ -1,6 +1,7 @@
 {
   "name": "@killoblanco/material-wind",
-  "version": "0.0.1",
+  "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
@@ -15,9 +16,21 @@
     },
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "@killoblanco:registry": "https://npm.pkg.github.com/"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/killoblanco/material-wind.git"
   },
+  "bugs": {
+    "url": "https://github.com/killoblanco/material-wind/issues"
+  },
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "material ui",
+    "ui",
+    "material-wind"
+  ],
+  "homepage": "https://github.com/killoblanco/material-wind#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
