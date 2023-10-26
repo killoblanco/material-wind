@@ -38,17 +38,10 @@ jobs:
         run: rm -rf dist
       - name: Building Code
         run: pnpm build
-      - name: Automate Bump Version
-        uses: phips28/gh-action-bump-version@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          skip-tag: true
-          skip-commit: true
       - name: Commit build
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 🚀 New build compiled
+          commit_message: 🤖 New build compiled
           commit_options: '--no-verify'
 
   publish-npm:
