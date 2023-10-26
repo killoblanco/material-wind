@@ -8,6 +8,7 @@ const extendTailwind = (): PluginCreator => (api) => {
 }
 
 const extendTheme = (): Partial<Config> => {
+  console.log('extendTheme')
   return {}
 }
 

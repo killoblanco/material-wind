@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18.x
       - name: Installing PNPM
         run: npm i -g pnpm
       - name: Installing dependencies
@@ -23,11 +23,13 @@ jobs:
   build:
     needs: preflight
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18.x
       - name: Installing PNPM
         run: npm i -g pnpm
       - name: Installing dependencies
@@ -36,12 +38,15 @@ jobs:
         run: rm -rf dist
       - name: Building Code
         run: pnpm build
-      - name: Committing dist folder
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add dist/*
-          git commit -m "🚀 New build compiled"
+      - name: Commit build
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 🚀 New build compiled
+          commit_options: '--no-verify'
+      - name: Automate Bump Version
+        uses: phips28/automate-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-npm:
     needs: build
@@ -50,7 +55,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18.x
           registry-url: https://registry.npmjs.org/
       - name: Installing PNPM
         run: npm i -g pnpm
