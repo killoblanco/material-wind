@@ -4,13 +4,10 @@ import type { PluginCreator, Config } from 'tailwindcss/types/config'
 import { buildBaseLayer } from './layers/base'
 
 const extendTailwind = (options: PluginOptions): PluginCreator => (api) => {
-  console.log('extendTailwind', options)
   buildBaseLayer(api)
 }
 
 const extendTheme = (options: PluginOptions): Partial<Config> => {
-  console.log('extendTheme', options)
-
   return {}
 }
 
