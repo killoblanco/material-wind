@@ -1,5 +1,5 @@
-import { Hct as c, argbFromHex as s, SchemeContent as f, SchemeExpressive as _, SchemeFidelity as v, SchemeMonochrome as $, SchemeNeutral as k, SchemeTonalSpot as F, SchemeVibrant as C, hexFromArgb as o } from "@material/material-color-utilities";
-function m(r) {
+import { Hct as c, argbFromHex as s, SchemeContent as f, SchemeExpressive as v, SchemeFidelity as _, SchemeMonochrome as $, SchemeNeutral as k, SchemeTonalSpot as h, SchemeVibrant as F, hexFromArgb as o } from "@material/material-color-utilities";
+function C(r) {
   return r && r.__esModule && Object.prototype.hasOwnProperty.call(r, "default") ? r.default : r;
 }
 var u = {}, y = {};
@@ -9,26 +9,26 @@ var u = {}, y = {};
   }), Object.defineProperty(r, "default", {
     enumerable: !0,
     get: function() {
-      return n;
+      return x;
     }
   });
-  function x(p, i) {
+  function n(p, i) {
     return {
       handler: p,
       config: i
     };
   }
-  x.withOptions = function(p, i = () => ({})) {
-    const e = function(g) {
+  n.withOptions = function(p, i = () => ({})) {
+    const e = function(d) {
       return {
-        __options: g,
-        handler: p(g),
-        config: i(g)
+        __options: d,
+        handler: p(d),
+        config: i(d)
       };
     };
     return e.__isOptionsFunction = !0, e.__pluginFunction = p, e.__configFunction = i, e;
   };
-  const n = x;
+  const x = n;
 })(y);
 (function(r) {
   Object.defineProperty(r, "__esModule", {
@@ -39,34 +39,36 @@ var u = {}, y = {};
       return p;
     }
   });
-  const x = /* @__PURE__ */ n(y);
-  function n(i) {
+  const n = /* @__PURE__ */ x(y);
+  function x(i) {
     return i && i.__esModule ? i : {
       default: i
     };
   }
-  const p = x.default;
+  const p = n.default;
 })(u);
-let d = u;
-var S = (d.__esModule ? d : { default: d }).default;
-const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
+let g = u;
+var S = (g.__esModule ? g : { default: g }).default;
+const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
   r({
     body: {
-      fontFamily: x("fontFamily.body"),
-      backgroundColor: x("colors.light.background"),
-      color: x("colors.light.onBackground"),
+      "--_bg": `var(--bg, ${n("colors.light.background")})`,
+      "--_color": `var(--color, ${n("colors.light.onBackground")})`,
+      fontFamily: n("fontFamily.body"),
+      backgroundColor: "var(--_bg)",
+      color: "var(--_color)",
       fontSmoothing: "antialiased",
       "&.dark": {
-        backgroundColor: x("colors.dark.background"),
-        color: x("colors.dark.onBackground")
+        "--bg": n("colors.dark.background"),
+        "--color": n("colors.dark.onBackground")
       },
       "@media (prefers-color-scheme: dark)": {
-        backgroundColor: x("colors.dark.background"),
-        color: x("colors.dark.onBackground")
+        "--bg": n("colors.dark.background"),
+        "--color": n("colors.dark.onBackground")
       }
     }
   });
-}, P = (r) => ({
+}, z = (r) => ({
   ".badge": {
     "--_size": "var(--size, 6px)",
     "--_bg": `var(--bg, ${r("colors.light.error")})`,
@@ -95,7 +97,7 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
     }
   }
 }), V = (r) => {
-  const x = {
+  const n = {
     "--_bg": `var(--bg, ${r("colors.neutral.40")})`,
     "--_bg-hover": `var(--bg-hover, ${r("colors.neutral.48")})`,
     "--_bg-active": `var(--bg-active, ${r("colors.neutral.52")})`,
@@ -105,8 +107,10 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
     "--_border-active": "var(--border-active, none)",
     "--_border-disabled": "var(--border-disabled, none)",
     "--_color": `var(--color, ${r("colors.neutral.100")})`,
-    "--_color-disabled": `var(--color-disabled, ${r("colors.neutral.10")}61)`
-  }, n = {
+    "--_color-disabled": `var(--color-disabled, ${r("colors.neutral.10")}61)`,
+    "--_shadow": "var(--shadow, none)",
+    "--_shadow-hover": "var(--shadow-hover, none)"
+  }, x = {
     light: (a = "neutral") => ({
       "--bg": r(`colors.${a}.40`),
       "--bg-hover": r(`colors.${a}.48`),
@@ -182,37 +186,41 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
       "--_color": r(`colors.${a}.80`),
       "--_color-disabled": r(`colors.${a}.80`)
     })
-  }, g = {
-    ...n.dark(),
+  }, d = {
+    ...x.dark(),
     "&.tonal": { ...p.dark() },
     "&.outlined": { ...i.dark() },
     "&.text": { ...e.dark() },
+    "&.elevated": {
+      "--shadow": r("boxShadow.elevate-dark-1"),
+      "--shadow-hover": r("boxShadow.elevate-dark-0")
+    },
     "&.neutralVariant": {
-      ...n.dark("neutralVariant"),
+      ...x.dark("neutralVariant"),
       "&.tonal": { ...p.dark("neutralVariant") },
       "&.outlined": { ...i.dark("neutralVariant") },
       "&.text": { ...e.dark("neutralVariant") }
     },
     "&.primary": {
-      ...n.dark("primary"),
+      ...x.dark("primary"),
       "&.tonal": { ...p.dark("primary") },
       "&.outlined": { ...i.dark("primary") },
       "&.text": { ...e.dark("primary") }
     },
     "&.secondary": {
-      ...n.dark("secondary"),
+      ...x.dark("secondary"),
       "&.tonal": { ...p.dark("secondary") },
       "&.outlined": { ...i.dark("secondary") },
       "&.text": { ...e.dark("secondary") }
     },
     "&.tertiary": {
-      ...n.dark("tertiary"),
+      ...x.dark("tertiary"),
       "&.tonal": { ...p.dark("tertiary") },
       "&.outlined": { ...i.dark("tertiary") },
       "&.text": { ...e.dark("tertiary") }
     },
     "&.error": {
-      ...n.dark("error"),
+      ...x.dark("error"),
       "&.tonal": { ...p.dark("error") },
       "&.outlined": { ...i.dark("error") },
       "&.text": { ...e.dark("error") }
@@ -220,11 +228,12 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
   };
   return {
     ".btn": {
-      ...x,
+      ...n,
       alignItems: "center",
       backgroundColor: "var(--_bg)",
       border: "var(--_border)",
       borderRadius: r("borderRadius.full"),
+      boxShadow: "var(--_shadow)",
       color: "var(--_color)",
       display: "inline-flex",
       fontFamily: r("fontFamily.body"),
@@ -237,7 +246,8 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
       transitionTimingFunction: r("transitionTimingFunction.standard"),
       "&:hover": {
         backgroundColor: "var(--_bg-hover)",
-        border: "var(--_border-hover)"
+        border: "var(--_border-hover)",
+        boxShadow: "var(--_shadow-hover)"
       },
       "&:active, &:focus": {
         backgroundColor: "var(--_bg-active)",
@@ -249,44 +259,48 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
         color: "var(--_color-disabled)",
         border: "var(--_border-disabled)"
       },
+      "&.elevated": {
+        "--shadow": r("boxShadow.elevate-light-1"),
+        "--shadow-hover": r("boxShadow.elevate-light-0")
+      },
       "&.tonal": { ...p.light() },
       "&.outlined": { ...i.light() },
       "&.text": { ...e.light() },
       "&.neutralVariant": {
-        ...n.light("neutralVariant"),
+        ...x.light("neutralVariant"),
         "&.tonal": { ...p.light("neutralVariant") },
         "&.outlined": { ...i.light("neutralVariant") },
         "&.text": { ...e.light("neutralVariant") }
       },
       "&.primary": {
-        ...n.light("primary"),
+        ...x.light("primary"),
         "&.tonal": { ...p.light("primary") },
         "&.outlined": { ...i.light("primary") },
         "&.text": { ...e.light("primary") }
       },
       "&.secondary": {
-        ...n.light("secondary"),
+        ...x.light("secondary"),
         "&.tonal": { ...p.light("secondary") },
         "&.outlined": { ...i.light("secondary") },
         "&.text": { ...e.light("secondary") }
       },
       "&.tertiary": {
-        ...n.light("tertiary"),
+        ...x.light("tertiary"),
         "&.tonal": { ...p.light("tertiary") },
         "&.outlined": { ...i.light("tertiary") },
         "&.text": { ...e.light("tertiary") }
       },
       "&.error": {
-        ...n.light("error"),
+        ...x.light("error"),
         "&.tonal": { ...p.light("error") },
         "&.outlined": { ...i.light("error") },
         "&.text": { ...e.light("error") }
       },
-      "body.dark &": { ...g },
-      "@media (prefers-color-scheme: dark)": { ...g }
+      "body.dark &": { ...d },
+      "@media (prefers-color-scheme: dark)": { ...d }
     }
   };
-}, w = (r) => ({
+}, P = (r) => ({
   ".typo": {
     ...{
       "--_family": `var(--family, ${r("fontFamily.body")})`,
@@ -373,16 +387,46 @@ const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
       }
     }
   }
-}), T = ({ addComponents: r, theme: x }) => {
+}), T = (r) => {
+  const n = (p, i) => ({
+    [`&.${i}`]: {
+      "--color": r(`colors.${p}.${i}`)
+    }
+  }), x = {};
+  return {
+    ".divider": {
+      "--_color": `var(--color, ${r("colors.light.outlineVariant")})`,
+      borderWidth: "0",
+      borderTopWidth: "1px",
+      borderColor: "var(--_color)",
+      borderStyle: "solid",
+      height: "1px",
+      width: "inherit",
+      "&.vertical": {
+        borderTopWidth: "0",
+        borderLeftWidth: "1px",
+        height: "inherit",
+        width: "1px"
+      },
+      ...n("light", "primary"),
+      ...n("light", "secondary"),
+      ...n("light", "tertiary"),
+      ...n("light", "error"),
+      "body.dark &": { ...x },
+      "@media (prefers-color-scheme: dark)": { ...x }
+    }
+  };
+}, D = ({ addComponents: r, theme: n }) => {
   r({
-    ...P(x),
-    ...V(x),
-    ...w(x)
+    ...z(n),
+    ...V(n),
+    ...T(n),
+    ...P(n)
   });
 };
-function D() {
+function O() {
   return (r) => {
-    h(r), T(r);
+    w(r), D(r);
   };
 }
 const b = {
@@ -392,10 +436,10 @@ const b = {
     body: "",
     heading: ""
   }
-}, l = Array.from({ length: 17 }, (r, x) => x * 50).reduce((r, x) => ({
+}, l = Array.from({ length: 17 }, (r, n) => n * 50).reduce((r, n) => ({
   ...r,
-  [x]: `${x}ms`
-}), {}), O = {
+  [n]: `${n}ms`
+}), {}), W = {
   transitionDelay: l,
   transitionDuration: l,
   transitionTimingFunction: {
@@ -462,11 +506,11 @@ const b = {
     "0px 11px 14px -7px rgba(255,255,255,0.2),0px 23px 36px 3px rgba(255,255,255,0.14),0px 9px 44px 8px rgba(255,255,255,0.12)",
     "0px 11px 15px -7px rgba(255,255,255,0.2),0px 24px 38px 3px rgba(255,255,255,0.14),0px 9px 46px 8px rgba(255,255,255,0.12)"
   ]
-].reduce((r, x, n) => ({
+].reduce((r, n, x) => ({
   ...r,
-  ...x.reduce((p, i, e) => ({
+  ...n.reduce((p, i, e) => ({
     ...p,
-    [`elevate-${n === 0 ? "light" : "dark"}-${e + 1}`]: i
+    [`elevate-${x === 0 ? "light" : "dark"}-${e + 1}`]: i
   }), {})
 }), {}), B = (r) => ({
   background: o(r.n1.tone(6)),
@@ -518,7 +562,7 @@ const b = {
   tertiaryFixedDim: o(r.a3.tone(80)),
   onTertiaryFixed: o(r.a3.tone(10)),
   onTertiaryFixedVariant: o(r.a3.tone(30))
-}), H = (r) => ({
+}), M = (r) => ({
   background: o(r.n1.tone(98)),
   onBackground: o(r.n1.tone(10)),
   surface: o(r.n1.tone(98)),
@@ -568,22 +612,22 @@ const b = {
   tertiaryFixedDim: o(r.a3.tone(80)),
   onTertiaryFixed: o(r.a3.tone(10)),
   onTertiaryFixedVariant: o(r.a3.tone(30))
-}), M = (r) => Array.from({ length: 101 }, (x, n) => n).reduce((x, n) => ({
-  primary: { ...x.primary, [n]: o(r.a1.tone(n)) },
-  secondary: { ...x.secondary, [n]: o(r.a2.tone(n)) },
-  tertiary: { ...x.tertiary, [n]: o(r.a3.tone(n)) },
-  neutral: { ...x.neutral, [n]: o(r.n1.tone(n)) },
-  neutralVariant: { ...x.neutralVariant, [n]: o(r.n2.tone(n)) },
-  error: { ...x.error, [n]: o(r.error.tone(n)) }
-}), { primary: {}, secondary: {}, tertiary: {}, neutral: {}, neutralVariant: {}, error: {} }), t = (r, x) => {
-  const n = new r(c.fromInt(s(x)), !1), p = new r(c.fromInt(s(x)), !0), i = {
+}), H = (r) => Array.from({ length: 101 }, (n, x) => x).reduce((n, x) => ({
+  primary: { ...n.primary, [x]: o(r.a1.tone(x)) },
+  secondary: { ...n.secondary, [x]: o(r.a2.tone(x)) },
+  tertiary: { ...n.tertiary, [x]: o(r.a3.tone(x)) },
+  neutral: { ...n.neutral, [x]: o(r.n1.tone(x)) },
+  neutralVariant: { ...n.neutralVariant, [x]: o(r.n2.tone(x)) },
+  error: { ...n.error, [x]: o(r.error.tone(x)) }
+}), { primary: {}, secondary: {}, tertiary: {}, neutral: {}, neutralVariant: {}, error: {} }), t = (r, n) => {
+  const x = new r(c.fromInt(s(n)), !1), p = new r(c.fromInt(s(n)), !0), i = {
     light: {
-      a1: n.primaryPalette,
-      a2: n.secondaryPalette,
-      a3: n.tertiaryPalette,
-      n1: n.neutralPalette,
-      n2: n.neutralVariantPalette,
-      error: n.errorPalette
+      a1: x.primaryPalette,
+      a2: x.secondaryPalette,
+      a3: x.tertiaryPalette,
+      n1: x.neutralPalette,
+      n2: x.neutralVariantPalette,
+      error: x.errorPalette
     },
     dark: {
       a1: p.primaryPalette,
@@ -595,39 +639,39 @@ const b = {
     }
   };
   return {
-    ...M(i.light),
-    light: H(i.light),
+    ...H(i.light),
+    light: M(i.light),
     dark: B(i.dark)
   };
-}, W = {
+}, L = {
   content: (r) => t(f, r),
-  expressive: (r) => t(_, r),
-  fidelity: (r) => t(v, r),
+  expressive: (r) => t(v, r),
+  fidelity: (r) => t(_, r),
   monochrome: (r) => t($, r),
   neutral: (r) => t(k, r),
-  tonalSpot: (r) => t(F, r),
-  vibrant: (r) => t(C, r)
+  tonalSpot: (r) => t(h, r),
+  vibrant: (r) => t(F, r)
 };
-function L(r = {}) {
-  return W[(r == null ? void 0 : r.colorScheme) ?? b.colorScheme](r.mainColor ?? b.mainColor);
+function j(r = {}) {
+  return L[(r == null ? void 0 : r.colorScheme) ?? b.colorScheme](r.mainColor ?? b.mainColor);
 }
-const j = (r = {}) => Object.entries(r ?? b.fontFamily).reduce((x, [n, p]) => ({
-  ...x,
-  [n]: [p, "system-ui", "sans-serif"].filter(Boolean)
+const A = (r = {}) => Object.entries(r ?? b.fontFamily).reduce((n, [x, p]) => ({
+  ...n,
+  [x]: [p, "system-ui", "sans-serif"].filter(Boolean)
 }), {});
-function A(r) {
+function R(r) {
   return {
     theme: {
       extend: {
         boxShadow: E,
-        colors: L(r),
-        fontFamily: j(r == null ? void 0 : r.fontFamily),
-        ...O
+        colors: j(r),
+        fontFamily: A(r == null ? void 0 : r.fontFamily),
+        ...W
       }
     }
   };
 }
-const I = z.withOptions(D, A);
+const q = m.withOptions(O, R);
 export {
-  I as default
+  q as default
 };

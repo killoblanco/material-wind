@@ -4,7 +4,7 @@ export const Buttons = () => (
       <h3 className="typo headline">
         Buttons
       </h3>
-      <hr />
+      <hr className="divider" />
     </div>
     <section className="inline-flex justify-between items-center">
       <button type="button" className="btn xs">Button XS</button>

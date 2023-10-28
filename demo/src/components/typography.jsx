@@ -3,7 +3,7 @@ export const Typography = () => (
     <h3 className="typo headline">
       Typography
     </h3>
-    <hr />
+    <hr className="divider" />
     <h1 className="typo display lg">Display Large</h1>
     <h2 className="typo display">Display</h2>
     <h2 className="typo display sm">Display Small</h2>

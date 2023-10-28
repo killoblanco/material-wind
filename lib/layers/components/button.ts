@@ -11,7 +11,9 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
     '--_border-active': 'var(--border-active, none)',
     '--_border-disabled': 'var(--border-disabled, none)',
     '--_color': `var(--color, ${theme('colors.neutral.100')})`,
-    '--_color-disabled': `var(--color-disabled, ${theme('colors.neutral.10')}61)`
+    '--_color-disabled': `var(--color-disabled, ${theme('colors.neutral.10')}61)`,
+    '--_shadow': 'var(--shadow, none)',
+    '--_shadow-hover': 'var(--shadow-hover, none)'
   }
 
   const defaultVariantColors = {
@@ -103,6 +105,10 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
     '&.tonal': { ...tonalVariantColors.dark() },
     '&.outlined': { ...outlinedVariantColors.dark() },
     '&.text': { ...textVariantColors.dark() },
+    '&.elevated': {
+      '--shadow': theme('boxShadow.elevate-dark-1'),
+      '--shadow-hover': theme('boxShadow.elevate-dark-0')
+    },
     '&.neutralVariant': {
       ...defaultVariantColors.dark('neutralVariant'),
       '&.tonal': { ...tonalVariantColors.dark('neutralVariant') },
@@ -142,6 +148,7 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
       backgroundColor: 'var(--_bg)',
       border: 'var(--_border)',
       borderRadius: theme('borderRadius.full'),
+      boxShadow: 'var(--_shadow)',
       color: 'var(--_color)',
       display: 'inline-flex',
       fontFamily: theme('fontFamily.body'),
@@ -154,7 +161,8 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
       transitionTimingFunction: theme('transitionTimingFunction.standard'),
       '&:hover': {
         backgroundColor: 'var(--_bg-hover)',
-        border: 'var(--_border-hover)'
+        border: 'var(--_border-hover)',
+        boxShadow: 'var(--_shadow-hover)'
       },
       '&:active, &:focus': {
         backgroundColor: 'var(--_bg-active)',
@@ -165,6 +173,10 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
         backgroundColor: 'var(--_bg-disabled)',
         color: 'var(--_color-disabled)',
         border: 'var(--_border-disabled)'
+      },
+      '&.elevated': {
+        '--shadow': theme('boxShadow.elevate-light-1'),
+        '--shadow-hover': theme('boxShadow.elevate-light-0')
       },
       '&.tonal': { ...tonalVariantColors.light() },
       '&.outlined': { ...outlinedVariantColors.light() },
