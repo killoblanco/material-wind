@@ -1,10 +1,9 @@
 import type { PluginOptions } from './types';
-import type { PluginCreator, Config } from 'tailwindcss/types/config';
-declare const _default: {
+declare const MaterialWind: {
     (options: PluginOptions): {
-        handler: PluginCreator;
-        config?: Partial<Config> | undefined;
+        handler: import("tailwindcss/types/config").PluginCreator;
+        config?: Partial<import("tailwindcss/types/config").Config> | undefined;
     };
     __isOptionsFunction: true;
 };
-export default _default;
+export default MaterialWind;

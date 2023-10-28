@@ -32,19 +32,24 @@
   ],
   "homepage": "https://github.com/killoblanco/material-wind#readme",
   "scripts": {
-    "dev": "vite",
+    "dev": "tsc && vite build -w",
     "build": "tsc && vite build",
-    "preview": "vite preview",
+    "preview": "cd ./demo && pnpm run dev",
     "lint": "eslint . --ext .ts",
-    "test": "npm run lint"
+    "test": "pnpm run lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.9.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "autoprefixer": "^10.4.16",
     "eslint": "8.52.0",
     "eslint-config-standard-with-typescript": "39.1.1",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-n": "16.2.0",
     "eslint-plugin-promise": "6.1.1",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "5.2.2",
     "vite": "4.5.0",
     "vite-plugin-dts": "3.6.1"
@@ -54,6 +59,7 @@
     "tailwindcss": "3.3.5"
   },
   "peerDependencies": {
+    "@material/material-color-utilities": "0.2.7",
     "tailwindcss": "3.3.5"
   }
 }

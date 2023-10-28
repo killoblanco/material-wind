@@ -1,15 +1,8 @@
 import plugin from 'tailwindcss/plugin'
+import extendTailwind from './layers'
+import extendTheme from './theme'
 import type { PluginOptions } from './types'
-import type { PluginCreator, Config } from 'tailwindcss/types/config'
-import { buildBaseLayer } from './layers/base'
 
-const extendTailwind = (): PluginCreator => (api) => {
-  buildBaseLayer(api)
-}
+const MaterialWind = plugin.withOptions<PluginOptions>(extendTailwind, extendTheme)
 
-const extendTheme = (): Partial<Config> => {
-  console.log('extendTheme')
-  return {}
-}
-
-export default plugin.withOptions<PluginOptions>(extendTailwind, extendTheme)
+export default MaterialWind
