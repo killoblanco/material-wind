@@ -1,8 +1,8 @@
-import { Hct as c, argbFromHex as s, SchemeContent as f, SchemeExpressive as m, SchemeFidelity as l, SchemeMonochrome as h, SchemeNeutral as F, SchemeTonalSpot as _, SchemeVibrant as C, hexFromArgb as x } from "@material/material-color-utilities";
-function z(r) {
+import { Hct as c, argbFromHex as s, SchemeContent as f, SchemeExpressive as _, SchemeFidelity as v, SchemeMonochrome as $, SchemeNeutral as k, SchemeTonalSpot as F, SchemeVibrant as C, hexFromArgb as o } from "@material/material-color-utilities";
+function m(r) {
   return r && r.__esModule && Object.prototype.hasOwnProperty.call(r, "default") ? r.default : r;
 }
-var d = {}, y = {};
+var u = {}, y = {};
 (function(r) {
   Object.defineProperty(r, "__esModule", {
     value: !0
@@ -12,23 +12,23 @@ var d = {}, y = {};
       return n;
     }
   });
-  function p(a, o) {
+  function x(p, i) {
     return {
-      handler: a,
-      config: o
+      handler: p,
+      config: i
     };
   }
-  p.withOptions = function(a, o = () => ({})) {
-    const i = function(t) {
+  x.withOptions = function(p, i = () => ({})) {
+    const e = function(g) {
       return {
-        __options: t,
-        handler: a(t),
-        config: o(t)
+        __options: g,
+        handler: p(g),
+        config: i(g)
       };
     };
-    return i.__isOptionsFunction = !0, i.__pluginFunction = a, i.__configFunction = o, i;
+    return e.__isOptionsFunction = !0, e.__pluginFunction = p, e.__configFunction = i, e;
   };
-  const n = p;
+  const n = x;
 })(y);
 (function(r) {
   Object.defineProperty(r, "__esModule", {
@@ -36,33 +36,33 @@ var d = {}, y = {};
   }), Object.defineProperty(r, "default", {
     enumerable: !0,
     get: function() {
-      return a;
+      return p;
     }
   });
-  const p = /* @__PURE__ */ n(y);
-  function n(o) {
-    return o && o.__esModule ? o : {
-      default: o
+  const x = /* @__PURE__ */ n(y);
+  function n(i) {
+    return i && i.__esModule ? i : {
+      default: i
     };
   }
-  const a = p.default;
-})(d);
-let g = d;
-var S = (g.__esModule ? g : { default: g }).default;
-const v = /* @__PURE__ */ z(S), k = ({ addBase: r, theme: p }) => {
+  const p = x.default;
+})(u);
+let d = u;
+var S = (d.__esModule ? d : { default: d }).default;
+const z = /* @__PURE__ */ m(S), h = ({ addBase: r, theme: x }) => {
   r({
     body: {
-      fontFamily: p("fontFamily.body"),
-      backgroundColor: p("colors.light.background"),
-      color: p("colors.light.onBackground"),
+      fontFamily: x("fontFamily.body"),
+      backgroundColor: x("colors.light.background"),
+      color: x("colors.light.onBackground"),
       fontSmoothing: "antialiased",
       "&.dark": {
-        backgroundColor: p("colors.dark.background"),
-        color: p("colors.dark.onBackground")
+        backgroundColor: x("colors.dark.background"),
+        color: x("colors.dark.onBackground")
       },
       "@media (prefers-color-scheme: dark)": {
-        backgroundColor: p("colors.dark.background"),
-        color: p("colors.dark.onBackground")
+        backgroundColor: x("colors.dark.background"),
+        color: x("colors.dark.onBackground")
       }
     }
   });
@@ -85,7 +85,7 @@ const v = /* @__PURE__ */ z(S), k = ({ addBase: r, theme: p }) => {
       lineHeight: "16pt",
       padding: "0 6px"
     },
-    "&.dark": {
+    "body.dark &": {
       "--bg": r("colors.dark.error"),
       "--color": r("colors.dark.onError")
     },
@@ -94,7 +94,199 @@ const v = /* @__PURE__ */ z(S), k = ({ addBase: r, theme: p }) => {
       "--color": r("colors.dark.onError")
     }
   }
-}), w = (r) => ({
+}), V = (r) => {
+  const x = {
+    "--_bg": `var(--bg, ${r("colors.neutral.40")})`,
+    "--_bg-hover": `var(--bg-hover, ${r("colors.neutral.48")})`,
+    "--_bg-active": `var(--bg-active, ${r("colors.neutral.52")})`,
+    "--_bg-disabled": `var(--bg-disabled, ${r("colors.neutral.10")}1F)`,
+    "--_border": "var(--border, none)",
+    "--_border-hover": "var(--border-hover, none)",
+    "--_border-active": "var(--border-active, none)",
+    "--_border-disabled": "var(--border-disabled, none)",
+    "--_color": `var(--color, ${r("colors.neutral.100")})`,
+    "--_color-disabled": `var(--color-disabled, ${r("colors.neutral.10")}61)`
+  }, n = {
+    light: (a = "neutral") => ({
+      "--bg": r(`colors.${a}.40`),
+      "--bg-hover": r(`colors.${a}.48`),
+      "--bg-active": r(`colors.${a}.52`),
+      "--bg-disabled": `${r(`colors.${a}.10`)}1F`,
+      "--color": r(`colors.${a}.100`),
+      "--color-disabled": `${r(`colors.${a}.10`)}61`
+    }),
+    dark: (a = "neutral") => ({
+      "--bg": r(`colors.${a}.80`),
+      "--bg-hover": r(`colors.${a}.72`),
+      "--bg-active": r(`colors.${a}.68`),
+      "--bg-disabled": `${r(`colors.${a}.90`)}1F`,
+      "--color": r(`colors.${a}.20`),
+      "--color-disabled": `${r(`colors.${a}.90`)}61`
+    })
+  }, p = {
+    light: (a = "neutral") => ({
+      "--bg": r(`colors.${a}.90`),
+      "--bg-hover": r(`colors.${a}.92`),
+      "--bg-active": r(`colors.${a}.94`),
+      "--bg-disabled": `${r(`colors.${a}.90`)}1F`,
+      "--color": r(`colors.${a}.10`),
+      "--color-disabled": `${r(`colors.${a}.10`)}61`
+    }),
+    dark: (a = "neutral") => ({
+      "--bg": r(`colors.${a}.30`),
+      "--bg-hover": r(`colors.${a}.22`),
+      "--bg-active": r(`colors.${a}.18`),
+      "--bg-disabled": `${r(`colors.${a}.30`)}1F`,
+      "--color": r(`colors.${a}.90`),
+      "--color-disabled": `${r(`colors.${a}.90`)}61`
+    })
+  }, i = {
+    light: (a = "neutral") => ({
+      "--_bg": r("colors.light.background"),
+      "--_bg-hover": `${r(`colors.${a}.40`)}14`,
+      "--_bg-active": `${r(`colors.${a}.40`)}1F`,
+      "--_bg-disabled": r("colors.light.surface"),
+      "--_border": `1px solid ${r("colors.light.outline")}`,
+      "--_border-hover": `1px solid ${r("colors.light.outline")}`,
+      "--_border-active": `1px solid ${r(`colors.${a}.40`)}`,
+      "--_border-disabled": `1px solid ${r("colors.light.onSurface")}1F`,
+      "--_color": r(`colors.${a}.40`),
+      "--_color-disabled": r(`colors.${a}.40`)
+    }),
+    dark: (a = "neutral") => ({
+      "--_bg": r("colors.dark.background"),
+      "--_bg-hover": `${r(`colors.${a}.80`)}14`,
+      "--_bg-active": `${r(`colors.${a}.80`)}1F`,
+      "--_bg-disabled": r("colors.dark.surface"),
+      "--_border": `1px solid ${r("colors.dark.outline")}`,
+      "--_border-hover": `1px solid ${r("colors.dark.outline")}`,
+      "--_border-active": `1px solid ${r(`colors.${a}.80`)}`,
+      "--_border-disabled": `1px solid ${r("colors.dark.onSurface")}1F`,
+      "--_color": r(`colors.${a}.80`),
+      "--_color-disabled": r(`colors.${a}.80`)
+    })
+  }, e = {
+    light: (a = "neutral") => ({
+      "--_bg": r("colors.light.background"),
+      "--_bg-hover": `${r(`colors.${a}.40`)}14`,
+      "--_bg-active": `${r(`colors.${a}.40`)}1F`,
+      "--_bg-disabled": r("colors.light.surface"),
+      "--_color": r(`colors.${a}.40`),
+      "--_color-disabled": r(`colors.${a}.40`)
+    }),
+    dark: (a = "neutral") => ({
+      "--_bg": r("colors.dark.background"),
+      "--_bg-hover": `${r(`colors.${a}.80`)}14`,
+      "--_bg-active": `${r(`colors.${a}.80`)}1F`,
+      "--_bg-disabled": r("colors.dark.surface"),
+      "--_color": r(`colors.${a}.80`),
+      "--_color-disabled": r(`colors.${a}.80`)
+    })
+  }, g = {
+    ...n.dark(),
+    "&.tonal": { ...p.dark() },
+    "&.outlined": { ...i.dark() },
+    "&.text": { ...e.dark() },
+    "&.neutralVariant": {
+      ...n.dark("neutralVariant"),
+      "&.tonal": { ...p.dark("neutralVariant") },
+      "&.outlined": { ...i.dark("neutralVariant") },
+      "&.text": { ...e.dark("neutralVariant") }
+    },
+    "&.primary": {
+      ...n.dark("primary"),
+      "&.tonal": { ...p.dark("primary") },
+      "&.outlined": { ...i.dark("primary") },
+      "&.text": { ...e.dark("primary") }
+    },
+    "&.secondary": {
+      ...n.dark("secondary"),
+      "&.tonal": { ...p.dark("secondary") },
+      "&.outlined": { ...i.dark("secondary") },
+      "&.text": { ...e.dark("secondary") }
+    },
+    "&.tertiary": {
+      ...n.dark("tertiary"),
+      "&.tonal": { ...p.dark("tertiary") },
+      "&.outlined": { ...i.dark("tertiary") },
+      "&.text": { ...e.dark("tertiary") }
+    },
+    "&.error": {
+      ...n.dark("error"),
+      "&.tonal": { ...p.dark("error") },
+      "&.outlined": { ...i.dark("error") },
+      "&.text": { ...e.dark("error") }
+    }
+  };
+  return {
+    ".btn": {
+      ...x,
+      alignItems: "center",
+      backgroundColor: "var(--_bg)",
+      border: "var(--_border)",
+      borderRadius: r("borderRadius.full"),
+      color: "var(--_color)",
+      display: "inline-flex",
+      fontFamily: r("fontFamily.body"),
+      gap: "8px",
+      height: "40px",
+      justifyContent: "center",
+      padding: "0 24px",
+      transitionProperty: "all",
+      transitionDuration: r("transitionDuration.200"),
+      transitionTimingFunction: r("transitionTimingFunction.standard"),
+      "&:hover": {
+        backgroundColor: "var(--_bg-hover)",
+        border: "var(--_border-hover)"
+      },
+      "&:active, &:focus": {
+        backgroundColor: "var(--_bg-active)",
+        border: "var(--_border-active)"
+      },
+      "&:disabled": {
+        pointerEvents: "none",
+        backgroundColor: "var(--_bg-disabled)",
+        color: "var(--_color-disabled)",
+        border: "var(--_border-disabled)"
+      },
+      "&.tonal": { ...p.light() },
+      "&.outlined": { ...i.light() },
+      "&.text": { ...e.light() },
+      "&.neutralVariant": {
+        ...n.light("neutralVariant"),
+        "&.tonal": { ...p.light("neutralVariant") },
+        "&.outlined": { ...i.light("neutralVariant") },
+        "&.text": { ...e.light("neutralVariant") }
+      },
+      "&.primary": {
+        ...n.light("primary"),
+        "&.tonal": { ...p.light("primary") },
+        "&.outlined": { ...i.light("primary") },
+        "&.text": { ...e.light("primary") }
+      },
+      "&.secondary": {
+        ...n.light("secondary"),
+        "&.tonal": { ...p.light("secondary") },
+        "&.outlined": { ...i.light("secondary") },
+        "&.text": { ...e.light("secondary") }
+      },
+      "&.tertiary": {
+        ...n.light("tertiary"),
+        "&.tonal": { ...p.light("tertiary") },
+        "&.outlined": { ...i.light("tertiary") },
+        "&.text": { ...e.light("tertiary") }
+      },
+      "&.error": {
+        ...n.light("error"),
+        "&.tonal": { ...p.light("error") },
+        "&.outlined": { ...i.light("error") },
+        "&.text": { ...e.light("error") }
+      },
+      "body.dark &": { ...g },
+      "@media (prefers-color-scheme: dark)": { ...g }
+    }
+  };
+}, w = (r) => ({
   ".typo": {
     ...{
       "--_family": `var(--family, ${r("fontFamily.body")})`,
@@ -181,15 +373,16 @@ const v = /* @__PURE__ */ z(S), k = ({ addBase: r, theme: p }) => {
       }
     }
   }
-}), V = ({ addComponents: r, theme: p }) => {
+}), T = ({ addComponents: r, theme: x }) => {
   r({
-    ...P(p),
-    ...w(p)
+    ...P(x),
+    ...V(x),
+    ...w(x)
   });
 };
-function T() {
+function D() {
   return (r) => {
-    k(r), V(r);
+    h(r), T(r);
   };
 }
 const b = {
@@ -199,12 +392,12 @@ const b = {
     body: "",
     heading: ""
   }
-}, u = Array.from({ length: 17 }, (r, p) => p * 50).reduce((r, p) => ({
+}, l = Array.from({ length: 17 }, (r, x) => x * 50).reduce((r, x) => ({
   ...r,
-  [p]: `${p}ms`
-}), {}), D = {
-  transitionDelay: u,
-  transitionDuration: u,
+  [x]: `${x}ms`
+}), {}), O = {
+  transitionDelay: l,
+  transitionDuration: l,
   transitionTimingFunction: {
     emphasized: "cubic-bezier(0.2, 0, 0, 1)",
     "emphasized-in": "cubic-bezier(0.3, 0, 0.8, 0.15)",
@@ -216,7 +409,7 @@ const b = {
     "legacy-in": "cubic-bezier(0.4, 0, 1, 1)",
     "legacy-out": "cubic-bezier(0, 0, 0.2, 1)"
   }
-}, O = [
+}, E = [
   [
     "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
     "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
@@ -269,121 +462,121 @@ const b = {
     "0px 11px 14px -7px rgba(255,255,255,0.2),0px 23px 36px 3px rgba(255,255,255,0.14),0px 9px 44px 8px rgba(255,255,255,0.12)",
     "0px 11px 15px -7px rgba(255,255,255,0.2),0px 24px 38px 3px rgba(255,255,255,0.14),0px 9px 46px 8px rgba(255,255,255,0.12)"
   ]
-].reduce((r, p, n) => ({
+].reduce((r, x, n) => ({
   ...r,
-  ...p.reduce((a, o, i) => ({
-    ...a,
-    [`elevate-${n === 0 ? "light" : "dark"}-${i + 1}`]: o
+  ...x.reduce((p, i, e) => ({
+    ...p,
+    [`elevate-${n === 0 ? "light" : "dark"}-${e + 1}`]: i
   }), {})
-}), {}), $ = (r) => ({
-  background: x(r.n1.tone(6)),
-  onBackground: x(r.n1.tone(90)),
-  surface: x(r.n1.tone(6)),
-  surfaceDim: x(r.n1.tone(6)),
-  surfaceBright: x(r.n1.tone(24)),
-  surfaceContainerLowest: x(r.n1.tone(4)),
-  surfaceContainerLow: x(r.n1.tone(10)),
-  surfaceContainer: x(r.n1.tone(12)),
-  surfaceContainerHigh: x(r.n1.tone(17)),
-  surfaceContainerHighest: x(r.n1.tone(22)),
-  onSurface: x(r.n1.tone(90)),
-  surfaceVariant: x(r.n2.tone(30)),
-  onSurfaceVariant: x(r.n2.tone(80)),
-  inverseSurface: x(r.n1.tone(90)),
-  inverseOnSurface: x(r.n1.tone(20)),
-  outline: x(r.n2.tone(60)),
-  outlineVariant: x(r.n2.tone(30)),
-  shadow: x(r.n1.tone(100)),
-  scrim: x(r.n1.tone(0)),
-  surfaceTint: x(r.a1.tone(80)),
-  primary: x(r.a1.tone(80)),
-  onPrimary: x(r.a1.tone(20)),
-  primaryContainer: x(r.a1.tone(30)),
-  onPrimaryContainer: x(r.a1.tone(90)),
-  inversePrimary: x(r.a1.tone(40)),
-  secondary: x(r.a2.tone(80)),
-  onSecondary: x(r.a2.tone(20)),
-  secondaryContainer: x(r.a2.tone(30)),
-  onSecondaryContainer: x(r.a2.tone(90)),
-  tertiary: x(r.a3.tone(80)),
-  onTertiary: x(r.a3.tone(20)),
-  tertiaryContainer: x(r.a3.tone(30)),
-  onTertiaryContainer: x(r.a3.tone(90)),
-  error: x(r.error.tone(80)),
-  onError: x(r.error.tone(20)),
-  errorContainer: x(r.error.tone(30)),
-  onErrorContainer: x(r.error.tone(90)),
-  primaryFixed: x(r.a1.tone(90)),
-  primaryFixedDim: x(r.a1.tone(80)),
-  onPrimaryFixed: x(r.a1.tone(10)),
-  onPrimaryFixedVariant: x(r.a1.tone(30)),
-  secondaryFixed: x(r.a2.tone(90)),
-  secondaryFixedDim: x(r.a2.tone(80)),
-  onSecondaryFixed: x(r.a2.tone(10)),
-  onSecondaryFixedVariant: x(r.a2.tone(30)),
-  tertiaryFixed: x(r.a3.tone(90)),
-  tertiaryFixedDim: x(r.a3.tone(80)),
-  onTertiaryFixed: x(r.a3.tone(10)),
-  onTertiaryFixedVariant: x(r.a3.tone(30))
-}), B = (r) => ({
-  background: x(r.n1.tone(98)),
-  onBackground: x(r.n1.tone(10)),
-  surface: x(r.n1.tone(98)),
-  surfaceDim: x(r.n1.tone(87)),
-  surfaceBright: x(r.n1.tone(98)),
-  surfaceContainerLowest: x(r.n1.tone(100)),
-  surfaceContainerLow: x(r.n1.tone(96)),
-  surfaceContainer: x(r.n1.tone(94)),
-  surfaceContainerHigh: x(r.n1.tone(92)),
-  surfaceContainerHighest: x(r.n1.tone(90)),
-  onSurface: x(r.n1.tone(10)),
-  surfaceVariant: x(r.n2.tone(90)),
-  onSurfaceVariant: x(r.n2.tone(30)),
-  inverseSurface: x(r.n1.tone(20)),
-  inverseOnSurface: x(r.n1.tone(95)),
-  outline: x(r.n2.tone(50)),
-  outlineVariant: x(r.n2.tone(80)),
-  shadow: x(r.n1.tone(0)),
-  scrim: x(r.n1.tone(0)),
-  surfaceTint: x(r.a1.tone(40)),
-  primary: x(r.a1.tone(40)),
-  onPrimary: x(r.a1.tone(100)),
-  primaryContainer: x(r.a1.tone(90)),
-  onPrimaryContainer: x(r.a1.tone(10)),
-  inversePrimary: x(r.a1.tone(80)),
-  secondary: x(r.a2.tone(40)),
-  onSecondary: x(r.a2.tone(100)),
-  secondaryContainer: x(r.a2.tone(90)),
-  onSecondaryContainer: x(r.a2.tone(10)),
-  tertiary: x(r.a3.tone(40)),
-  onTertiary: x(r.a3.tone(100)),
-  tertiaryContainer: x(r.a3.tone(90)),
-  onTertiaryContainer: x(r.a3.tone(10)),
-  error: x(r.error.tone(40)),
-  onError: x(r.error.tone(100)),
-  errorContainer: x(r.error.tone(90)),
-  onErrorContainer: x(r.error.tone(10)),
-  primaryFixed: x(r.a1.tone(90)),
-  primaryFixedDim: x(r.a1.tone(80)),
-  onPrimaryFixed: x(r.a1.tone(10)),
-  onPrimaryFixedVariant: x(r.a1.tone(30)),
-  secondaryFixed: x(r.a2.tone(90)),
-  secondaryFixedDim: x(r.a2.tone(80)),
-  onSecondaryFixed: x(r.a2.tone(10)),
-  onSecondaryFixedVariant: x(r.a2.tone(30)),
-  tertiaryFixed: x(r.a3.tone(90)),
-  tertiaryFixedDim: x(r.a3.tone(80)),
-  onTertiaryFixed: x(r.a3.tone(10)),
-  onTertiaryFixedVariant: x(r.a3.tone(30))
-}), E = (r) => Array.from({ length: 101 }, (p, n) => n).reduce((p, n) => ({
-  primary: { ...p.primary, [n]: x(r.a1.tone(n)) },
-  secondary: { ...p.secondary, [n]: x(r.a2.tone(n)) },
-  tertiary: { ...p.tertiary, [n]: x(r.a3.tone(n)) },
-  neutral: { ...p.neutral, [n]: x(r.n1.tone(n)) },
-  neutralVariant: { ...p.neutralVariant, [n]: x(r.n2.tone(n)) },
-  error: { ...p.error, [n]: x(r.error.tone(n)) }
-}), { primary: {}, secondary: {}, tertiary: {}, neutral: {}, neutralVariant: {}, error: {} }), e = (r, p) => {
-  const n = new r(c.fromInt(s(p)), !1), a = new r(c.fromInt(s(p)), !0), o = {
+}), {}), B = (r) => ({
+  background: o(r.n1.tone(6)),
+  onBackground: o(r.n1.tone(90)),
+  surface: o(r.n1.tone(6)),
+  surfaceDim: o(r.n1.tone(6)),
+  surfaceBright: o(r.n1.tone(24)),
+  surfaceContainerLowest: o(r.n1.tone(4)),
+  surfaceContainerLow: o(r.n1.tone(10)),
+  surfaceContainer: o(r.n1.tone(12)),
+  surfaceContainerHigh: o(r.n1.tone(17)),
+  surfaceContainerHighest: o(r.n1.tone(22)),
+  onSurface: o(r.n1.tone(90)),
+  surfaceVariant: o(r.n2.tone(30)),
+  onSurfaceVariant: o(r.n2.tone(80)),
+  inverseSurface: o(r.n1.tone(90)),
+  inverseOnSurface: o(r.n1.tone(20)),
+  outline: o(r.n2.tone(60)),
+  outlineVariant: o(r.n2.tone(30)),
+  shadow: o(r.n1.tone(100)),
+  scrim: o(r.n1.tone(0)),
+  surfaceTint: o(r.a1.tone(80)),
+  primary: o(r.a1.tone(80)),
+  onPrimary: o(r.a1.tone(20)),
+  primaryContainer: o(r.a1.tone(30)),
+  onPrimaryContainer: o(r.a1.tone(90)),
+  inversePrimary: o(r.a1.tone(40)),
+  secondary: o(r.a2.tone(80)),
+  onSecondary: o(r.a2.tone(20)),
+  secondaryContainer: o(r.a2.tone(30)),
+  onSecondaryContainer: o(r.a2.tone(90)),
+  tertiary: o(r.a3.tone(80)),
+  onTertiary: o(r.a3.tone(20)),
+  tertiaryContainer: o(r.a3.tone(30)),
+  onTertiaryContainer: o(r.a3.tone(90)),
+  error: o(r.error.tone(80)),
+  onError: o(r.error.tone(20)),
+  errorContainer: o(r.error.tone(30)),
+  onErrorContainer: o(r.error.tone(90)),
+  primaryFixed: o(r.a1.tone(90)),
+  primaryFixedDim: o(r.a1.tone(80)),
+  onPrimaryFixed: o(r.a1.tone(10)),
+  onPrimaryFixedVariant: o(r.a1.tone(30)),
+  secondaryFixed: o(r.a2.tone(90)),
+  secondaryFixedDim: o(r.a2.tone(80)),
+  onSecondaryFixed: o(r.a2.tone(10)),
+  onSecondaryFixedVariant: o(r.a2.tone(30)),
+  tertiaryFixed: o(r.a3.tone(90)),
+  tertiaryFixedDim: o(r.a3.tone(80)),
+  onTertiaryFixed: o(r.a3.tone(10)),
+  onTertiaryFixedVariant: o(r.a3.tone(30))
+}), H = (r) => ({
+  background: o(r.n1.tone(98)),
+  onBackground: o(r.n1.tone(10)),
+  surface: o(r.n1.tone(98)),
+  surfaceDim: o(r.n1.tone(87)),
+  surfaceBright: o(r.n1.tone(98)),
+  surfaceContainerLowest: o(r.n1.tone(100)),
+  surfaceContainerLow: o(r.n1.tone(96)),
+  surfaceContainer: o(r.n1.tone(94)),
+  surfaceContainerHigh: o(r.n1.tone(92)),
+  surfaceContainerHighest: o(r.n1.tone(90)),
+  onSurface: o(r.n1.tone(10)),
+  surfaceVariant: o(r.n2.tone(90)),
+  onSurfaceVariant: o(r.n2.tone(30)),
+  inverseSurface: o(r.n1.tone(20)),
+  inverseOnSurface: o(r.n1.tone(95)),
+  outline: o(r.n2.tone(50)),
+  outlineVariant: o(r.n2.tone(80)),
+  shadow: o(r.n1.tone(0)),
+  scrim: o(r.n1.tone(0)),
+  surfaceTint: o(r.a1.tone(40)),
+  primary: o(r.a1.tone(40)),
+  onPrimary: o(r.a1.tone(100)),
+  primaryContainer: o(r.a1.tone(90)),
+  onPrimaryContainer: o(r.a1.tone(10)),
+  inversePrimary: o(r.a1.tone(80)),
+  secondary: o(r.a2.tone(40)),
+  onSecondary: o(r.a2.tone(100)),
+  secondaryContainer: o(r.a2.tone(90)),
+  onSecondaryContainer: o(r.a2.tone(10)),
+  tertiary: o(r.a3.tone(40)),
+  onTertiary: o(r.a3.tone(100)),
+  tertiaryContainer: o(r.a3.tone(90)),
+  onTertiaryContainer: o(r.a3.tone(10)),
+  error: o(r.error.tone(40)),
+  onError: o(r.error.tone(100)),
+  errorContainer: o(r.error.tone(90)),
+  onErrorContainer: o(r.error.tone(10)),
+  primaryFixed: o(r.a1.tone(90)),
+  primaryFixedDim: o(r.a1.tone(80)),
+  onPrimaryFixed: o(r.a1.tone(10)),
+  onPrimaryFixedVariant: o(r.a1.tone(30)),
+  secondaryFixed: o(r.a2.tone(90)),
+  secondaryFixedDim: o(r.a2.tone(80)),
+  onSecondaryFixed: o(r.a2.tone(10)),
+  onSecondaryFixedVariant: o(r.a2.tone(30)),
+  tertiaryFixed: o(r.a3.tone(90)),
+  tertiaryFixedDim: o(r.a3.tone(80)),
+  onTertiaryFixed: o(r.a3.tone(10)),
+  onTertiaryFixedVariant: o(r.a3.tone(30))
+}), M = (r) => Array.from({ length: 101 }, (x, n) => n).reduce((x, n) => ({
+  primary: { ...x.primary, [n]: o(r.a1.tone(n)) },
+  secondary: { ...x.secondary, [n]: o(r.a2.tone(n)) },
+  tertiary: { ...x.tertiary, [n]: o(r.a3.tone(n)) },
+  neutral: { ...x.neutral, [n]: o(r.n1.tone(n)) },
+  neutralVariant: { ...x.neutralVariant, [n]: o(r.n2.tone(n)) },
+  error: { ...x.error, [n]: o(r.error.tone(n)) }
+}), { primary: {}, secondary: {}, tertiary: {}, neutral: {}, neutralVariant: {}, error: {} }), t = (r, x) => {
+  const n = new r(c.fromInt(s(x)), !1), p = new r(c.fromInt(s(x)), !0), i = {
     light: {
       a1: n.primaryPalette,
       a2: n.secondaryPalette,
@@ -393,48 +586,48 @@ const b = {
       error: n.errorPalette
     },
     dark: {
-      a1: a.primaryPalette,
-      a2: a.secondaryPalette,
-      a3: a.tertiaryPalette,
-      n1: a.neutralPalette,
-      n2: a.neutralVariantPalette,
-      error: a.errorPalette
+      a1: p.primaryPalette,
+      a2: p.secondaryPalette,
+      a3: p.tertiaryPalette,
+      n1: p.neutralPalette,
+      n2: p.neutralVariantPalette,
+      error: p.errorPalette
     }
   };
   return {
-    ...E(o.light),
-    light: B(o.light),
-    dark: $(o.dark)
+    ...M(i.light),
+    light: H(i.light),
+    dark: B(i.dark)
   };
-}, H = {
-  content: (r) => e(f, r),
-  expressive: (r) => e(m, r),
-  fidelity: (r) => e(l, r),
-  monochrome: (r) => e(h, r),
-  neutral: (r) => e(F, r),
-  tonalSpot: (r) => e(_, r),
-  vibrant: (r) => e(C, r)
+}, W = {
+  content: (r) => t(f, r),
+  expressive: (r) => t(_, r),
+  fidelity: (r) => t(v, r),
+  monochrome: (r) => t($, r),
+  neutral: (r) => t(k, r),
+  tonalSpot: (r) => t(F, r),
+  vibrant: (r) => t(C, r)
 };
-function W(r = {}) {
-  return H[(r == null ? void 0 : r.colorScheme) ?? b.colorScheme](r.mainColor ?? b.mainColor);
+function L(r = {}) {
+  return W[(r == null ? void 0 : r.colorScheme) ?? b.colorScheme](r.mainColor ?? b.mainColor);
 }
-const L = (r = {}) => Object.entries(r ?? b.fontFamily).reduce((p, [n, a]) => ({
-  ...p,
-  [n]: [a, "system-ui", "sans-serif"].filter(Boolean)
+const j = (r = {}) => Object.entries(r ?? b.fontFamily).reduce((x, [n, p]) => ({
+  ...x,
+  [n]: [p, "system-ui", "sans-serif"].filter(Boolean)
 }), {});
-function M(r) {
+function A(r) {
   return {
     theme: {
       extend: {
-        boxShadow: O,
-        colors: W(r),
-        fontFamily: L(r == null ? void 0 : r.fontFamily),
-        ...D
+        boxShadow: E,
+        colors: L(r),
+        fontFamily: j(r == null ? void 0 : r.fontFamily),
+        ...O
       }
     }
   };
 }
-const A = v.withOptions(T, M);
+const I = z.withOptions(D, A);
 export {
-  A as default
+  I as default
 };

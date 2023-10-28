@@ -19,7 +19,7 @@ export const badge = (theme: PluginAPI['theme']): CSSRuleObject => ({
       lineHeight: '16pt',
       padding: '0 6px'
     },
-    '&.dark': {
+    'body.dark &': {
       '--bg': theme('colors.dark.error'),
       '--color': theme('colors.dark.onError')
     },
