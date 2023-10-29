@@ -1,5 +1,5 @@
-import { Hct as c, argbFromHex as s, SchemeContent as f, SchemeExpressive as v, SchemeFidelity as _, SchemeMonochrome as $, SchemeNeutral as k, SchemeTonalSpot as h, SchemeVibrant as F, hexFromArgb as o } from "@material/material-color-utilities";
-function C(r) {
+import { Hct as b, argbFromHex as c, SchemeContent as f, SchemeExpressive as v, SchemeFidelity as _, SchemeMonochrome as $, SchemeNeutral as k, SchemeTonalSpot as S, SchemeVibrant as h, hexFromArgb as o } from "@material/material-color-utilities";
+function F(r) {
   return r && r.__esModule && Object.prototype.hasOwnProperty.call(r, "default") ? r.default : r;
 }
 var u = {}, y = {};
@@ -12,21 +12,21 @@ var u = {}, y = {};
       return x;
     }
   });
-  function n(p, i) {
+  function n(i, p) {
     return {
-      handler: p,
-      config: i
+      handler: i,
+      config: p
     };
   }
-  n.withOptions = function(p, i = () => ({})) {
-    const e = function(d) {
+  n.withOptions = function(i, p = () => ({})) {
+    const e = function(g) {
       return {
-        __options: d,
-        handler: p(d),
-        config: i(d)
+        __options: g,
+        handler: i(g),
+        config: p(g)
       };
     };
-    return e.__isOptionsFunction = !0, e.__pluginFunction = p, e.__configFunction = i, e;
+    return e.__isOptionsFunction = !0, e.__pluginFunction = i, e.__configFunction = p, e;
   };
   const x = n;
 })(y);
@@ -36,24 +36,24 @@ var u = {}, y = {};
   }), Object.defineProperty(r, "default", {
     enumerable: !0,
     get: function() {
-      return p;
+      return i;
     }
   });
   const n = /* @__PURE__ */ x(y);
-  function x(i) {
-    return i && i.__esModule ? i : {
-      default: i
+  function x(p) {
+    return p && p.__esModule ? p : {
+      default: p
     };
   }
-  const p = n.default;
+  const i = n.default;
 })(u);
-let g = u;
-var S = (g.__esModule ? g : { default: g }).default;
-const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
+let d = u;
+var O = (d.__esModule ? d : { default: d }).default;
+const C = /* @__PURE__ */ F(O), m = ({ addBase: r, theme: n }) => {
   r({
     body: {
-      "--_bg": `var(--bg, ${n("colors.light.background")})`,
-      "--_color": `var(--color, ${n("colors.light.onBackground")})`,
+      "--_bg": `var(--bg, ${JSON.stringify(n("colors.light.background"))})`,
+      "--_color": `var(--color, ${JSON.stringify(n("colors.light.onBackground"))})`,
       fontFamily: n("fontFamily.body"),
       backgroundColor: "var(--_bg)",
       color: "var(--_color)",
@@ -68,11 +68,11 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
       }
     }
   });
-}, z = (r) => ({
+}, w = (r) => ({
   ".badge": {
     "--_size": "var(--size, 6px)",
-    "--_bg": `var(--bg, ${r("colors.light.error")})`,
-    "--_color": `var(--color, ${r("colors.light.onError")})`,
+    "--_bg": `var(--bg, ${JSON.stringify(r("colors.light.error"))})`,
+    "--_color": `var(--color, ${JSON.stringify(r("colors.light.onError"))})`,
     backgroundColor: "var(--_bg)",
     borderRadius: r("borderRadius.full"),
     display: "inline-block",
@@ -96,18 +96,18 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
       "--color": r("colors.dark.onError")
     }
   }
-}), V = (r) => {
+}), N = (r) => {
   const n = {
-    "--_bg": `var(--bg, ${r("colors.neutral.40")})`,
-    "--_bg-hover": `var(--bg-hover, ${r("colors.neutral.48")})`,
-    "--_bg-active": `var(--bg-active, ${r("colors.neutral.52")})`,
-    "--_bg-disabled": `var(--bg-disabled, ${r("colors.neutral.10")}1F)`,
+    "--_bg": `var(--bg, ${JSON.stringify(r("colors.neutral.40"))})`,
+    "--_bg-hover": `var(--bg-hover, ${JSON.stringify(r("colors.neutral.48"))})`,
+    "--_bg-active": `var(--bg-active, ${JSON.stringify(r("colors.neutral.52"))})`,
+    "--_bg-disabled": `var(--bg-disabled, ${JSON.stringify(r("colors.neutral.10"))}1F)`,
     "--_border": "var(--border, none)",
     "--_border-hover": "var(--border-hover, none)",
     "--_border-active": "var(--border-active, none)",
     "--_border-disabled": "var(--border-disabled, none)",
-    "--_color": `var(--color, ${r("colors.neutral.100")})`,
-    "--_color-disabled": `var(--color-disabled, ${r("colors.neutral.10")}61)`,
+    "--_color": `var(--color, ${JSON.stringify(r("colors.neutral.100"))})`,
+    "--_color-disabled": `var(--color-disabled, ${JSON.stringify(r("colors.neutral.10"))}61)`,
     "--_shadow": "var(--shadow, none)",
     "--_shadow-hover": "var(--shadow-hover, none)"
   }, x = {
@@ -115,81 +115,81 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
       "--bg": r(`colors.${a}.40`),
       "--bg-hover": r(`colors.${a}.48`),
       "--bg-active": r(`colors.${a}.52`),
-      "--bg-disabled": `${r(`colors.${a}.10`)}1F`,
+      "--bg-disabled": `${JSON.stringify(r(`colors.${a}.10`))}1F`,
       "--color": r(`colors.${a}.100`),
-      "--color-disabled": `${r(`colors.${a}.10`)}61`
+      "--color-disabled": `${JSON.stringify(r(`colors.${a}.10`))}61`
     }),
     dark: (a = "neutral") => ({
       "--bg": r(`colors.${a}.80`),
       "--bg-hover": r(`colors.${a}.72`),
       "--bg-active": r(`colors.${a}.68`),
-      "--bg-disabled": `${r(`colors.${a}.90`)}1F`,
+      "--bg-disabled": `${JSON.stringify(r(`colors.${a}.90`))}1F`,
       "--color": r(`colors.${a}.20`),
-      "--color-disabled": `${r(`colors.${a}.90`)}61`
+      "--color-disabled": `${JSON.stringify(r(`colors.${a}.90`))}61`
     })
-  }, p = {
+  }, i = {
     light: (a = "neutral") => ({
       "--bg": r(`colors.${a}.90`),
       "--bg-hover": r(`colors.${a}.92`),
       "--bg-active": r(`colors.${a}.94`),
-      "--bg-disabled": `${r(`colors.${a}.90`)}1F`,
+      "--bg-disabled": `${JSON.stringify(r(`colors.${a}.90`))}1F`,
       "--color": r(`colors.${a}.10`),
-      "--color-disabled": `${r(`colors.${a}.10`)}61`
+      "--color-disabled": `${JSON.stringify(r(`colors.${a}.10`))}61`
     }),
     dark: (a = "neutral") => ({
       "--bg": r(`colors.${a}.30`),
       "--bg-hover": r(`colors.${a}.22`),
       "--bg-active": r(`colors.${a}.18`),
-      "--bg-disabled": `${r(`colors.${a}.30`)}1F`,
+      "--bg-disabled": `${JSON.stringify(r(`colors.${a}.30`))}1F`,
       "--color": r(`colors.${a}.90`),
-      "--color-disabled": `${r(`colors.${a}.90`)}61`
+      "--color-disabled": `${JSON.stringify(r(`colors.${a}.90`))}61`
     })
-  }, i = {
+  }, p = {
     light: (a = "neutral") => ({
       "--_bg": r("colors.light.background"),
-      "--_bg-hover": `${r(`colors.${a}.40`)}14`,
-      "--_bg-active": `${r(`colors.${a}.40`)}1F`,
+      "--_bg-hover": `${JSON.stringify(r(`colors.${a}.40`))}14`,
+      "--_bg-active": `${JSON.stringify(r(`colors.${a}.40`))}1F`,
       "--_bg-disabled": r("colors.light.surface"),
-      "--_border": `1px solid ${r("colors.light.outline")}`,
-      "--_border-hover": `1px solid ${r("colors.light.outline")}`,
-      "--_border-active": `1px solid ${r(`colors.${a}.40`)}`,
-      "--_border-disabled": `1px solid ${r("colors.light.onSurface")}1F`,
+      "--_border": `1px solid ${JSON.stringify(r("colors.light.outline"))}`,
+      "--_border-hover": `1px solid ${JSON.stringify(r("colors.light.outline"))}`,
+      "--_border-active": `1px solid ${JSON.stringify(r(`colors.${a}.40`))}`,
+      "--_border-disabled": `1px solid ${JSON.stringify(r("colors.light.onSurface"))}1F`,
       "--_color": r(`colors.${a}.40`),
       "--_color-disabled": r(`colors.${a}.40`)
     }),
     dark: (a = "neutral") => ({
       "--_bg": r("colors.dark.background"),
-      "--_bg-hover": `${r(`colors.${a}.80`)}14`,
-      "--_bg-active": `${r(`colors.${a}.80`)}1F`,
+      "--_bg-hover": `${JSON.stringify(r(`colors.${a}.80`))}14`,
+      "--_bg-active": `${JSON.stringify(r(`colors.${a}.80`))}1F`,
       "--_bg-disabled": r("colors.dark.surface"),
-      "--_border": `1px solid ${r("colors.dark.outline")}`,
-      "--_border-hover": `1px solid ${r("colors.dark.outline")}`,
-      "--_border-active": `1px solid ${r(`colors.${a}.80`)}`,
-      "--_border-disabled": `1px solid ${r("colors.dark.onSurface")}1F`,
+      "--_border": `1px solid ${JSON.stringify(r("colors.dark.outline"))}`,
+      "--_border-hover": `1px solid ${JSON.stringify(r("colors.dark.outline"))}`,
+      "--_border-active": `1px solid ${JSON.stringify(r(`colors.${a}.80`))}`,
+      "--_border-disabled": `1px solid ${JSON.stringify(r("colors.dark.onSurface"))}1F`,
       "--_color": r(`colors.${a}.80`),
       "--_color-disabled": r(`colors.${a}.80`)
     })
   }, e = {
     light: (a = "neutral") => ({
       "--_bg": r("colors.light.background"),
-      "--_bg-hover": `${r(`colors.${a}.40`)}14`,
-      "--_bg-active": `${r(`colors.${a}.40`)}1F`,
+      "--_bg-hover": `${JSON.stringify(r(`colors.${a}.40`))}14`,
+      "--_bg-active": `${JSON.stringify(r(`colors.${a}.40`))}1F`,
       "--_bg-disabled": r("colors.light.surface"),
       "--_color": r(`colors.${a}.40`),
       "--_color-disabled": r(`colors.${a}.40`)
     }),
     dark: (a = "neutral") => ({
       "--_bg": r("colors.dark.background"),
-      "--_bg-hover": `${r(`colors.${a}.80`)}14`,
-      "--_bg-active": `${r(`colors.${a}.80`)}1F`,
+      "--_bg-hover": `${JSON.stringify(r(`colors.${a}.80`))}14`,
+      "--_bg-active": `${JSON.stringify(r(`colors.${a}.80`))}1F`,
       "--_bg-disabled": r("colors.dark.surface"),
       "--_color": r(`colors.${a}.80`),
       "--_color-disabled": r(`colors.${a}.80`)
     })
-  }, d = {
+  }, g = {
     ...x.dark(),
-    "&.tonal": { ...p.dark() },
-    "&.outlined": { ...i.dark() },
+    "&.tonal": { ...i.dark() },
+    "&.outlined": { ...p.dark() },
     "&.text": { ...e.dark() },
     "&.elevated": {
       "--shadow": r("boxShadow.elevate-dark-1"),
@@ -197,32 +197,32 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
     },
     "&.neutralVariant": {
       ...x.dark("neutralVariant"),
-      "&.tonal": { ...p.dark("neutralVariant") },
-      "&.outlined": { ...i.dark("neutralVariant") },
+      "&.tonal": { ...i.dark("neutralVariant") },
+      "&.outlined": { ...p.dark("neutralVariant") },
       "&.text": { ...e.dark("neutralVariant") }
     },
     "&.primary": {
       ...x.dark("primary"),
-      "&.tonal": { ...p.dark("primary") },
-      "&.outlined": { ...i.dark("primary") },
+      "&.tonal": { ...i.dark("primary") },
+      "&.outlined": { ...p.dark("primary") },
       "&.text": { ...e.dark("primary") }
     },
     "&.secondary": {
       ...x.dark("secondary"),
-      "&.tonal": { ...p.dark("secondary") },
-      "&.outlined": { ...i.dark("secondary") },
+      "&.tonal": { ...i.dark("secondary") },
+      "&.outlined": { ...p.dark("secondary") },
       "&.text": { ...e.dark("secondary") }
     },
     "&.tertiary": {
       ...x.dark("tertiary"),
-      "&.tonal": { ...p.dark("tertiary") },
-      "&.outlined": { ...i.dark("tertiary") },
+      "&.tonal": { ...i.dark("tertiary") },
+      "&.outlined": { ...p.dark("tertiary") },
       "&.text": { ...e.dark("tertiary") }
     },
     "&.error": {
       ...x.dark("error"),
-      "&.tonal": { ...p.dark("error") },
-      "&.outlined": { ...i.dark("error") },
+      "&.tonal": { ...i.dark("error") },
+      "&.outlined": { ...p.dark("error") },
       "&.text": { ...e.dark("error") }
     }
   };
@@ -263,48 +263,48 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
         "--shadow": r("boxShadow.elevate-light-1"),
         "--shadow-hover": r("boxShadow.elevate-light-0")
       },
-      "&.tonal": { ...p.light() },
-      "&.outlined": { ...i.light() },
+      "&.tonal": { ...i.light() },
+      "&.outlined": { ...p.light() },
       "&.text": { ...e.light() },
       "&.neutralVariant": {
         ...x.light("neutralVariant"),
-        "&.tonal": { ...p.light("neutralVariant") },
-        "&.outlined": { ...i.light("neutralVariant") },
+        "&.tonal": { ...i.light("neutralVariant") },
+        "&.outlined": { ...p.light("neutralVariant") },
         "&.text": { ...e.light("neutralVariant") }
       },
       "&.primary": {
         ...x.light("primary"),
-        "&.tonal": { ...p.light("primary") },
-        "&.outlined": { ...i.light("primary") },
+        "&.tonal": { ...i.light("primary") },
+        "&.outlined": { ...p.light("primary") },
         "&.text": { ...e.light("primary") }
       },
       "&.secondary": {
         ...x.light("secondary"),
-        "&.tonal": { ...p.light("secondary") },
-        "&.outlined": { ...i.light("secondary") },
+        "&.tonal": { ...i.light("secondary") },
+        "&.outlined": { ...p.light("secondary") },
         "&.text": { ...e.light("secondary") }
       },
       "&.tertiary": {
         ...x.light("tertiary"),
-        "&.tonal": { ...p.light("tertiary") },
-        "&.outlined": { ...i.light("tertiary") },
+        "&.tonal": { ...i.light("tertiary") },
+        "&.outlined": { ...p.light("tertiary") },
         "&.text": { ...e.light("tertiary") }
       },
       "&.error": {
         ...x.light("error"),
-        "&.tonal": { ...p.light("error") },
-        "&.outlined": { ...i.light("error") },
+        "&.tonal": { ...i.light("error") },
+        "&.outlined": { ...p.light("error") },
         "&.text": { ...e.light("error") }
       },
-      "body.dark &": { ...d },
-      "@media (prefers-color-scheme: dark)": { ...d }
+      "body.dark &": { ...g },
+      "@media (prefers-color-scheme: dark)": { ...g }
     }
   };
-}, P = (r) => ({
+}, J = (r) => ({
   ".typo": {
     ...{
-      "--_family": `var(--family, ${r("fontFamily.body")})`,
-      "--_weight": `var(--weight, ${r("fontWeight.normal")})`,
+      "--_family": `var(--family, ${JSON.stringify(r("fontFamily.body"))})`,
+      "--_weight": `var(--weight, ${JSON.stringify(r("fontWeight.normal"))})`,
       "--_size": "var(--size, 14pt)",
       "--_spacing": "var(--spacing, 0.25pt)",
       "--_line": "var(--line, 20pt)"
@@ -387,15 +387,15 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
       }
     }
   }
-}), T = (r) => {
-  const n = (p, i) => ({
-    [`&.${i}`]: {
-      "--color": r(`colors.${p}.${i}`)
+}), z = (r) => {
+  const n = (i, p) => ({
+    [`&.${p}`]: {
+      "--color": r(`colors.${i}.${p}`)
     }
   }), x = {};
   return {
     ".divider": {
-      "--_color": `var(--color, ${r("colors.light.outlineVariant")})`,
+      "--_color": `var(--color, ${JSON.stringify(r("colors.light.outlineVariant"))})`,
       borderWidth: "0",
       borderTopWidth: "1px",
       borderColor: "var(--_color)",
@@ -416,20 +416,20 @@ const m = /* @__PURE__ */ C(S), w = ({ addBase: r, theme: n }) => {
       "@media (prefers-color-scheme: dark)": { ...x }
     }
   };
-}, D = ({ addComponents: r, theme: n }) => {
+}, V = ({ addComponents: r, theme: n }) => {
   r({
+    ...w(n),
+    ...N(n),
     ...z(n),
-    ...V(n),
-    ...T(n),
-    ...P(n)
+    ...J(n)
   });
 };
-function O() {
+function P() {
   return (r) => {
-    w(r), D(r);
+    m(r), V(r);
   };
 }
-const b = {
+const s = {
   colorScheme: "content",
   mainColor: "#0CA678",
   fontFamily: {
@@ -439,7 +439,7 @@ const b = {
 }, l = Array.from({ length: 17 }, (r, n) => n * 50).reduce((r, n) => ({
   ...r,
   [n]: `${n}ms`
-}), {}), W = {
+}), {}), T = {
   transitionDelay: l,
   transitionDuration: l,
   transitionTimingFunction: {
@@ -453,7 +453,7 @@ const b = {
     "legacy-in": "cubic-bezier(0.4, 0, 1, 1)",
     "legacy-out": "cubic-bezier(0, 0, 0.2, 1)"
   }
-}, E = [
+}, D = [
   [
     "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
     "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
@@ -508,11 +508,11 @@ const b = {
   ]
 ].reduce((r, n, x) => ({
   ...r,
-  ...n.reduce((p, i, e) => ({
-    ...p,
-    [`elevate-${x === 0 ? "light" : "dark"}-${e + 1}`]: i
+  ...n.reduce((i, p, e) => ({
+    ...i,
+    [`elevate-${x === 0 ? "light" : "dark"}-${e + 1}`]: p
   }), {})
-}), {}), B = (r) => ({
+}), {}), W = (r) => ({
   background: o(r.n1.tone(6)),
   onBackground: o(r.n1.tone(90)),
   surface: o(r.n1.tone(6)),
@@ -562,7 +562,7 @@ const b = {
   tertiaryFixedDim: o(r.a3.tone(80)),
   onTertiaryFixed: o(r.a3.tone(10)),
   onTertiaryFixedVariant: o(r.a3.tone(30))
-}), M = (r) => ({
+}), E = (r) => ({
   background: o(r.n1.tone(98)),
   onBackground: o(r.n1.tone(10)),
   surface: o(r.n1.tone(98)),
@@ -612,7 +612,7 @@ const b = {
   tertiaryFixedDim: o(r.a3.tone(80)),
   onTertiaryFixed: o(r.a3.tone(10)),
   onTertiaryFixedVariant: o(r.a3.tone(30))
-}), H = (r) => Array.from({ length: 101 }, (n, x) => x).reduce((n, x) => ({
+}), B = (r) => Array.from({ length: 101 }, (n, x) => x).reduce((n, x) => ({
   primary: { ...n.primary, [x]: o(r.a1.tone(x)) },
   secondary: { ...n.secondary, [x]: o(r.a2.tone(x)) },
   tertiary: { ...n.tertiary, [x]: o(r.a3.tone(x)) },
@@ -620,7 +620,7 @@ const b = {
   neutralVariant: { ...n.neutralVariant, [x]: o(r.n2.tone(x)) },
   error: { ...n.error, [x]: o(r.error.tone(x)) }
 }), { primary: {}, secondary: {}, tertiary: {}, neutral: {}, neutralVariant: {}, error: {} }), t = (r, n) => {
-  const x = new r(c.fromInt(s(n)), !1), p = new r(c.fromInt(s(n)), !0), i = {
+  const x = new r(b.fromInt(c(n)), !1), i = new r(b.fromInt(c(n)), !0), p = {
     light: {
       a1: x.primaryPalette,
       a2: x.secondaryPalette,
@@ -630,48 +630,48 @@ const b = {
       error: x.errorPalette
     },
     dark: {
-      a1: p.primaryPalette,
-      a2: p.secondaryPalette,
-      a3: p.tertiaryPalette,
-      n1: p.neutralPalette,
-      n2: p.neutralVariantPalette,
-      error: p.errorPalette
+      a1: i.primaryPalette,
+      a2: i.secondaryPalette,
+      a3: i.tertiaryPalette,
+      n1: i.neutralPalette,
+      n2: i.neutralVariantPalette,
+      error: i.errorPalette
     }
   };
   return {
-    ...H(i.light),
-    light: M(i.light),
-    dark: B(i.dark)
+    ...B(p.light),
+    light: E(p.light),
+    dark: W(p.dark)
   };
-}, L = {
+}, M = {
   content: (r) => t(f, r),
   expressive: (r) => t(v, r),
   fidelity: (r) => t(_, r),
   monochrome: (r) => t($, r),
   neutral: (r) => t(k, r),
-  tonalSpot: (r) => t(h, r),
-  vibrant: (r) => t(F, r)
+  tonalSpot: (r) => t(S, r),
+  vibrant: (r) => t(h, r)
 };
-function j(r = {}) {
-  return L[(r == null ? void 0 : r.colorScheme) ?? b.colorScheme](r.mainColor ?? b.mainColor);
+function H(r = {}) {
+  return M[(r == null ? void 0 : r.colorScheme) ?? s.colorScheme](r.mainColor ?? s.mainColor);
 }
-const A = (r = {}) => Object.entries(r ?? b.fontFamily).reduce((n, [x, p]) => ({
+const L = (r = {}) => Object.entries(r ?? s.fontFamily).reduce((n, [x, i]) => ({
   ...n,
-  [x]: [p, "system-ui", "sans-serif"].filter(Boolean)
+  [x]: [i, "system-ui", "sans-serif"].filter(Boolean)
 }), {});
-function R(r) {
+function j(r) {
   return {
     theme: {
       extend: {
-        boxShadow: E,
-        colors: j(r),
-        fontFamily: A(r == null ? void 0 : r.fontFamily),
-        ...W
+        boxShadow: D,
+        colors: H(r),
+        fontFamily: L(r == null ? void 0 : r.fontFamily),
+        ...T
       }
     }
   };
 }
-const q = m.withOptions(O, R);
+const R = C.withOptions(P, j);
 export {
-  q as default
+  R as default
 };
