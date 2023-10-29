@@ -1,7 +1,7 @@
 import type { CSSRuleObject, PluginAPI } from 'tailwindcss/types/config'
 
 export const divider = (theme: PluginAPI['theme']): CSSRuleObject => {
-  const colorVariant = (mode: string, color: string) => ({
+  const colorVariant = (mode: string, color: string): CSSRuleObject => ({
     [`&.${color}`]: {
       '--color': theme(`colors.${mode}.${color}`)
     }
@@ -11,7 +11,7 @@ export const divider = (theme: PluginAPI['theme']): CSSRuleObject => {
 
   return ({
     '.divider': {
-      '--_color': `var(--color, ${theme('colors.light.outlineVariant')})`,
+      '--_color': `var(--color, ${JSON.stringify(theme('colors.light.outlineVariant'))})`,
       borderWidth: '0',
       borderTopWidth: '1px',
       borderColor: 'var(--_color)',
