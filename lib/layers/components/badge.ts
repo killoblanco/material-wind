@@ -3,8 +3,8 @@ import type { CSSRuleObject, PluginAPI } from 'tailwindcss/types/config'
 export const badge = (theme: PluginAPI['theme']): CSSRuleObject => ({
   '.badge': {
     '--_size': 'var(--size, 6px)',
-    '--_bg': `var(--bg, ${theme('colors.light.error')})`,
-    '--_color': `var(--color, ${theme('colors.light.onError')})`,
+    '--_bg': `var(--bg, ${JSON.stringify(theme('colors.light.error'))})`,
+    '--_color': `var(--color, ${JSON.stringify(theme('colors.light.onError'))})`,
     backgroundColor: 'var(--_bg)',
     borderRadius: theme('borderRadius.full'),
     display: 'inline-block',

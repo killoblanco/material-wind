@@ -2,8 +2,8 @@ import type { CSSRuleObject, PluginAPI } from 'tailwindcss/types/config'
 
 export const typography = (theme: PluginAPI['theme']): CSSRuleObject => {
   const vars = {
-    '--_family': `var(--family, ${theme('fontFamily.body')})`,
-    '--_weight': `var(--weight, ${theme('fontWeight.normal')})`,
+    '--_family': `var(--family, ${JSON.stringify(theme('fontFamily.body'))})`,
+    '--_weight': `var(--weight, ${JSON.stringify(theme('fontWeight.normal'))})`,
     '--_size': 'var(--size, 14pt)',
     '--_spacing': 'var(--spacing, 0.25pt)',
     '--_line': 'var(--line, 20pt)'

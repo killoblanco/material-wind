@@ -2,16 +2,16 @@ import type { PluginAPI, CSSRuleObject } from 'tailwindcss/types/config'
 
 export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
   const vars = {
-    '--_bg': `var(--bg, ${theme('colors.neutral.40')})`,
-    '--_bg-hover': `var(--bg-hover, ${theme('colors.neutral.48')})`,
-    '--_bg-active': `var(--bg-active, ${theme('colors.neutral.52')})`,
-    '--_bg-disabled': `var(--bg-disabled, ${theme('colors.neutral.10')}1F)`,
+    '--_bg': `var(--bg, ${JSON.stringify(theme('colors.neutral.40'))})`,
+    '--_bg-hover': `var(--bg-hover, ${JSON.stringify(theme('colors.neutral.48'))})`,
+    '--_bg-active': `var(--bg-active, ${JSON.stringify(theme('colors.neutral.52'))})`,
+    '--_bg-disabled': `var(--bg-disabled, ${JSON.stringify(theme('colors.neutral.10'))}1F)`,
     '--_border': 'var(--border, none)',
     '--_border-hover': 'var(--border-hover, none)',
     '--_border-active': 'var(--border-active, none)',
     '--_border-disabled': 'var(--border-disabled, none)',
-    '--_color': `var(--color, ${theme('colors.neutral.100')})`,
-    '--_color-disabled': `var(--color-disabled, ${theme('colors.neutral.10')}61)`,
+    '--_color': `var(--color, ${JSON.stringify(theme('colors.neutral.100'))})`,
+    '--_color-disabled': `var(--color-disabled, ${JSON.stringify(theme('colors.neutral.10'))}61)`,
     '--_shadow': 'var(--shadow, none)',
     '--_shadow-hover': 'var(--shadow-hover, none)'
   }
@@ -21,17 +21,17 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
       '--bg': theme(`colors.${color}.40`),
       '--bg-hover': theme(`colors.${color}.48`),
       '--bg-active': theme(`colors.${color}.52`),
-      '--bg-disabled': `${theme(`colors.${color}.10`)}1F`,
+      '--bg-disabled': `${JSON.stringify(theme(`colors.${color}.10`))}1F`,
       '--color': theme(`colors.${color}.100`),
-      '--color-disabled': `${theme(`colors.${color}.10`)}61`
+      '--color-disabled': `${JSON.stringify(theme(`colors.${color}.10`))}61`
     }),
     dark: (color: string = 'neutral') => ({
       '--bg': theme(`colors.${color}.80`),
       '--bg-hover': theme(`colors.${color}.72`),
       '--bg-active': theme(`colors.${color}.68`),
-      '--bg-disabled': `${theme(`colors.${color}.90`)}1F`,
+      '--bg-disabled': `${JSON.stringify(theme(`colors.${color}.90`))}1F`,
       '--color': theme(`colors.${color}.20`),
-      '--color-disabled': `${theme(`colors.${color}.90`)}61`
+      '--color-disabled': `${JSON.stringify(theme(`colors.${color}.90`))}61`
     })
   }
 
@@ -40,42 +40,42 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
       '--bg': theme(`colors.${color}.90`),
       '--bg-hover': theme(`colors.${color}.92`),
       '--bg-active': theme(`colors.${color}.94`),
-      '--bg-disabled': `${theme(`colors.${color}.90`)}1F`,
+      '--bg-disabled': `${JSON.stringify(theme(`colors.${color}.90`))}1F`,
       '--color': theme(`colors.${color}.10`),
-      '--color-disabled': `${theme(`colors.${color}.10`)}61`
+      '--color-disabled': `${JSON.stringify(theme(`colors.${color}.10`))}61`
     }),
     dark: (color: string = 'neutral') => ({
       '--bg': theme(`colors.${color}.30`),
       '--bg-hover': theme(`colors.${color}.22`),
       '--bg-active': theme(`colors.${color}.18`),
-      '--bg-disabled': `${theme(`colors.${color}.30`)}1F`,
+      '--bg-disabled': `${JSON.stringify(theme(`colors.${color}.30`))}1F`,
       '--color': theme(`colors.${color}.90`),
-      '--color-disabled': `${theme(`colors.${color}.90`)}61`
+      '--color-disabled': `${JSON.stringify(theme(`colors.${color}.90`))}61`
     })
   }
 
   const outlinedVariantColors = {
     light: (color: string = 'neutral') => ({
       '--_bg': theme('colors.light.background'),
-      '--_bg-hover': `${theme(`colors.${color}.40`)}14`,
-      '--_bg-active': `${theme(`colors.${color}.40`)}1F`,
+      '--_bg-hover': `${JSON.stringify(theme(`colors.${color}.40`))}14`,
+      '--_bg-active': `${JSON.stringify(theme(`colors.${color}.40`))}1F`,
       '--_bg-disabled': theme('colors.light.surface'),
-      '--_border': `1px solid ${theme('colors.light.outline')}`,
-      '--_border-hover': `1px solid ${theme('colors.light.outline')}`,
-      '--_border-active': `1px solid ${theme(`colors.${color}.40`)}`,
-      '--_border-disabled': `1px solid ${theme('colors.light.onSurface')}1F`,
+      '--_border': `1px solid ${JSON.stringify(theme('colors.light.outline'))}`,
+      '--_border-hover': `1px solid ${JSON.stringify(theme('colors.light.outline'))}`,
+      '--_border-active': `1px solid ${JSON.stringify(theme(`colors.${color}.40`))}`,
+      '--_border-disabled': `1px solid ${JSON.stringify(theme('colors.light.onSurface'))}1F`,
       '--_color': theme(`colors.${color}.40`),
       '--_color-disabled': theme(`colors.${color}.40`)
     }),
     dark: (color: string = 'neutral') => ({
       '--_bg': theme('colors.dark.background'),
-      '--_bg-hover': `${theme(`colors.${color}.80`)}14`,
-      '--_bg-active': `${theme(`colors.${color}.80`)}1F`,
+      '--_bg-hover': `${JSON.stringify(theme(`colors.${color}.80`))}14`,
+      '--_bg-active': `${JSON.stringify(theme(`colors.${color}.80`))}1F`,
       '--_bg-disabled': theme('colors.dark.surface'),
-      '--_border': `1px solid ${theme('colors.dark.outline')}`,
-      '--_border-hover': `1px solid ${theme('colors.dark.outline')}`,
-      '--_border-active': `1px solid ${theme(`colors.${color}.80`)}`,
-      '--_border-disabled': `1px solid ${theme('colors.dark.onSurface')}1F`,
+      '--_border': `1px solid ${JSON.stringify(theme('colors.dark.outline'))}`,
+      '--_border-hover': `1px solid ${JSON.stringify(theme('colors.dark.outline'))}`,
+      '--_border-active': `1px solid ${JSON.stringify(theme(`colors.${color}.80`))}`,
+      '--_border-disabled': `1px solid ${JSON.stringify(theme('colors.dark.onSurface'))}1F`,
       '--_color': theme(`colors.${color}.80`),
       '--_color-disabled': theme(`colors.${color}.80`)
     })
@@ -84,16 +84,16 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
   const textVariantColors = {
     light: (color: string = 'neutral') => ({
       '--_bg': theme('colors.light.background'),
-      '--_bg-hover': `${theme(`colors.${color}.40`)}14`,
-      '--_bg-active': `${theme(`colors.${color}.40`)}1F`,
+      '--_bg-hover': `${JSON.stringify(theme(`colors.${color}.40`))}14`,
+      '--_bg-active': `${JSON.stringify(theme(`colors.${color}.40`))}1F`,
       '--_bg-disabled': theme('colors.light.surface'),
       '--_color': theme(`colors.${color}.40`),
       '--_color-disabled': theme(`colors.${color}.40`)
     }),
     dark: (color: string = 'neutral') => ({
       '--_bg': theme('colors.dark.background'),
-      '--_bg-hover': `${theme(`colors.${color}.80`)}14`,
-      '--_bg-active': `${theme(`colors.${color}.80`)}1F`,
+      '--_bg-hover': `${JSON.stringify(theme(`colors.${color}.80`))}14`,
+      '--_bg-active': `${JSON.stringify(theme(`colors.${color}.80`))}1F`,
       '--_bg-disabled': theme('colors.dark.surface'),
       '--_color': theme(`colors.${color}.80`),
       '--_color-disabled': theme(`colors.${color}.80`)
@@ -214,5 +214,5 @@ export const button = (theme: PluginAPI['theme']): CSSRuleObject => {
       'body.dark &': { ...darkMode },
       '@media (prefers-color-scheme: dark)': { ...darkMode }
     }
-  })
+  }) as unknown as CSSRuleObject
 }
